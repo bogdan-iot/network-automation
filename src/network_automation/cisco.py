@@ -57,13 +57,28 @@ class CiscoSSHDevice(object):
         serial = self.conn.send_command('show version | include Processor')
         return serial.split(' ')[-1]
 
-    def get_cdp_neighbors(self, parse=True):
+    def get_cdp_neighbors(self, parse=True, detail=False):
         """
         This method retrieves the CDP neighbors of the device
         :return:
         """
-        command = 'show cdp neighbors'
+        if detail:
+            command = 'show cdp neighbors detail'
+        else:
+            command = 'show cdp neighbors'
         if parse:
             return self.conn.send_command(command, use_textfsm=True)
 
         return self.conn.send_command(command)
+
+    def send_config_set(self, cmd_list):
+        """
+        This method will send a list of commands to the device
+        :param cmd_list:
+        :return:
+        """
+        try:
+            self.conn.send_config_set(cmd_list)
+        except:
+            return False
+        return True
