@@ -26,7 +26,7 @@ class CiscoSSHDevice(object):
         }
         self.conn = ConnectHandler(**netmiko_device)
 
-    def execute_command(self, command, parse=True, timeout=10):
+    def execute_show_command(self, command, parse=True, timeout=10):
         """
         This method executes a command on Cisco CLI and returns the result
         :param command: The command to run
@@ -70,15 +70,3 @@ class CiscoSSHDevice(object):
             return self.conn.send_command(command, use_textfsm=True)
 
         return self.conn.send_command(command)
-
-    def send_config_set(self, cmd_list):
-        """
-        This method will send a list of commands to the device
-        :param cmd_list:
-        :return:
-        """
-        try:
-            self.conn.send_config_set(cmd_list)
-        except:
-            return False
-        return True
