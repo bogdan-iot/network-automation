@@ -46,7 +46,7 @@ class CiscoSSHDevice(object):
         :param timeout: Set the timeout for executing the command and getting the result
         :return:
         """
-        interfaces = self.execute_command('show interface', timeout=timeout)
+        interfaces = self.execute_show_command('show interface', timeout=timeout)
         return [MyDict(x) for x in interfaces]
 
     def get_device_serial(self):

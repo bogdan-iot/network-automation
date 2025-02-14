@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "network_automation"
-version = "0.1.0"
+version = "0.1.1"
 license = "LICENSE"
 readme = "README.md"
 description = "Network Automation Library"
