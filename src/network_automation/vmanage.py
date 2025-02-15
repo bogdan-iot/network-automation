@@ -8,8 +8,7 @@ class Authentication:
         self.port = port or os.environ.get("VMANAGE_PORT", 443)
         self.usr = usr or os.environ.get("VMANAGE_USER")
         self.pwd = pwd or os.environ.get("VMANAGE_PASS")
-        if proxies is None:
-            self.proxies = {}
+        self.proxies = proxies or {}
 
         self.jsessionid = self.get_jsessionid()
         self.token = self.get_token()
