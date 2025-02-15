@@ -3,7 +3,7 @@ import requests
 from mydict import MyDict
 
 class Authentication:
-    def __init__(self, host=None, port=None, usr=None, pwd=None, proxies=None):
+    def __init__(self, host, port, usr, pwd, proxies):
         self.host = host or os.environ.get("VMANAGE_HOST")
         self.port = port or os.environ.get("VMANAGE_PORT", 443)
         self.usr = usr or os.environ.get("VMANAGE_USER")
@@ -42,8 +42,8 @@ class Authentication:
 
 
 class VManage:
-    def __init__(self):
-        self.auth = Authentication()
+    def __init__(self, host=None, port=None, usr=None, pwd=None, proxies=None):
+        self.auth = Authentication(host, port, usr, pwd, proxies)
         # self.jsessionid = self.auth.get_jsessionid(vmanage_host, vmanage_port, vmanage_username, vmanage_password)
         # self.token = self.auth.get_token(vmanage_host, vmanage_port, self.jsessionid)
         self.base_url = f'https://{self.auth.host}:{self.auth.port}/dataservice'
