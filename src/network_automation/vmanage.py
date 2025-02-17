@@ -47,8 +47,6 @@ class Authentication:
 class VManage:
     def __init__(self, host=None, port=None, usr=None, pwd=None, proxies=None):
         self.auth = Authentication(host, port, usr, pwd, proxies)
-        # self.jsessionid = self.auth.get_jsessionid(vmanage_host, vmanage_port, vmanage_username, vmanage_password)
-        # self.token = self.auth.get_token(vmanage_host, vmanage_port, self.jsessionid)
         self.base_url = f'https://{self.auth.host}:{self.auth.port}/dataservice'
         self.proxies = self.auth.proxies
 
@@ -79,6 +77,13 @@ class VManage:
 
         return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
                                    proxies=self.proxies, verify=False).json())
+
+    def get_wan_interface_list(self, ip_address=None):
+        if not ip_address:
+            raise ValueError("Missing parameter: ip_address")
+        url_path = f'/device/control/waninterfaces?deviceId={ip_address}'
+
+        return self._get_entity(url_path).data
 
     def _get_entity(self, url_path):
         return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
