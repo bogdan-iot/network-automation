@@ -1,3 +1,4 @@
+import json
 import os
 import requests
 from mydict import MyDict
@@ -160,7 +161,7 @@ class VManage:
         }
 
         result = MyDict(requests.post(self.base_url + url_path, headers=self.headers,
-                                      proxies=proxies, data=json.dumps(query), verify=False).json())
+                                      proxies=self.proxies, data=json.dumps(query), verify=False).json())
 
         filtered_list = []
 
