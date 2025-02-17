@@ -71,3 +71,83 @@ class VManage:
 
         return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
                                    proxies=self.proxies, verify=False).json())
+
+    def get_tunnel_metrics(self, device_ip, remote_endpoints, hours=24, interval=1):
+        url_path = '/statistics/approute/fec/aggregation'
+        query = {
+            "query": {
+                "condition": "AND",
+                "rules":
+                    [
+                        {
+                            "value": [str(hours)],
+                            "field": "entry_time",
+                            "type": "date",
+                            "operator": "last_n_hours"
+                        },
+                        {
+                            "value": [device_ip],
+                            "field": "vdevice_name",
+                            "type": "string",
+                            "operator": "in"
+                        }
+                    ]
+            },
+            "aggregation":
+                {
+                    "field": [
+                        {
+                            "property": "name",
+                            "sequence": 1,
+                            "size": 262},
+                        {
+                            "property": "state",
+                            "sequence": 1
+                        },
+                        {
+                            "property": "proto",
+                            "sequence": 2
+                        }
+                    ],
+                    "histogram": {
+                        "property": "entry_time",
+                        "type": "hour",
+                        "interval": interval,
+                        "order": "asc"
+                    },
+                    "metrics": [
+                        {
+                            "property": "loss_percentage",
+                            "type": "avg"},
+                        {
+                            "property": "vqoe_score",
+                            "type": "avg"
+                        },
+                        {
+                            "property": "latency",
+                            "type": "avg"
+                        },
+                        {
+                            "property": "jitter",
+                            "type": "avg"
+                        },
+                        {
+                            "property": "rx_octets",
+                            "type": "sum"
+                        },
+                        {
+                            "property": "tx_octets",
+                            "type": "sum"}
+                    ]
+                }
+        }
+
+        result = MyDict(requests.post(self.base_url + url_path, headers=self.headers,
+                                      proxies=proxies, data=json.dumps(query), verify=False).json())
+
+        filtered_list = []
+
+        for endpoint in remote_endpoints:
+            filtered_list.extend([x for x in result.data if endpoint in x.name])
+
+        return filtered_list
