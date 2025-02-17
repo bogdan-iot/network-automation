@@ -2,6 +2,7 @@ import os
 import requests
 from mydict import MyDict
 
+
 class Authentication:
     def __init__(self, host, port, usr, pwd, proxies):
         self.host = host or os.environ.get("VMANAGE_HOST")
@@ -19,12 +20,15 @@ class Authentication:
         url = base_url + api
         payload = {'j_username': self.usr, 'j_password': self.pwd}
 
-        response = requests.post(url=url, data=payload, proxies=self.proxies, verify=False)
         try:
-            cookies = response.headers["Set-Cookie"]
-            jsessionid = cookies.split(";")
-        except:
-            raise ConnectionError("No valid JSESSION ID returned")
+            response = requests.post(url=url, data=payload, proxies=self.proxies, verify=False)
+        except requests.exceptions.ProxyError:
+            raise ConnectionError("Please check vManage URL and proxy settings")
+        if response.text:
+            raise ConnectionError("Authentication issue")
+
+        cookies = response.headers["Set-Cookie"]
+        jsessionid = cookies.split(";")
 
         return jsessionid[0]
 
@@ -54,6 +58,10 @@ class VManage:
         else:
             self.headers = {'Content-Type': "application/json", 'Cookie': self.auth.jsessionid}
 
+    def get_device_list(self):
+        url_path = '\device'
+        return self._get_entity(url_path).data
+
     def get_prefix_lists(self):
         url_path = '/template/policy/list/dataprefix'
 
@@ -69,5 +77,9 @@ class VManage:
     def get_firewall_policy(self, policy_id):
         url_path = f'/template/policy/definition/zonebasedfw/{policy_id}'
 
+        return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
+                                   proxies=self.proxies, verify=False).json())
+
+    def _get_entity(self, url_path):
         return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
                                    proxies=self.proxies, verify=False).json())
