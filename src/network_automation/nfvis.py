@@ -29,6 +29,7 @@ class NFVISServer(object):
 
         self.session.auth = (username, password)
         self.platform = None
+        self.get_platform_details()
 
     def get_platform_details(self):
         if self.platform:
