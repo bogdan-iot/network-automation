@@ -16,6 +16,7 @@ class NFVISServer(object):
         if not hostname:
             raise ValueError("Hostname is missing")
 
+        self.hostname = hostname
         self.url = 'https://' + hostname
         self.username = username or environment.get_cisco_username()
         self.password = password or environment.get_cisco_password()
@@ -37,7 +38,10 @@ class NFVISServer(object):
             return self.platform
 
         uri = self.url + '/api/operational/platform-detail'
-        resp = self.session.get(uri, headers=header)
+        try:
+            resp = self.session.get(uri, headers=header)
+        except requests.exceptions.ConnectionError:
+            raise ConnectionError(f"Could not connect to {self.hostname}")
 
         self.platform = json.loads(resp.text)["platform_info:platform-detail"]
 
