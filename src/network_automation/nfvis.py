@@ -28,7 +28,9 @@ class NFVISServer(object):
             self.session.verify = False
 
         self.session.auth = (username, password)
+
         self.platform = None
+        self.get_platform_details()
 
     def get_platform_details(self):
         if self.platform:
@@ -40,13 +42,19 @@ class NFVISServer(object):
         self.platform = json.loads(resp.text)["platform_info:platform-detail"]
 
     def get_serial(self):
-        self.get_platform_details()
-        return self.platform["hardware_info"]["SN"]
+        try:
+            return self.platform["hardware_info"]["SN"]
+        except KeyError:
+            return ""
 
     def get_pid(self):
-        self.get_platform_details()
-        return self.platform["hardware_info"]["PID"]
+        try:
+            return self.platform["hardware_info"]["PID"]
+        except KeyError:
+            return ""
 
     def get_version(self):
-        self.get_platform_details()
-        return self.platform["hardware_info"]["Version"]
+        try:
+            return self.platform["hardware_info"]["Version"]
+        except KeyError:
+            return ""
