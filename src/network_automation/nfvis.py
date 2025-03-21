@@ -28,7 +28,7 @@ class NFVISServer(object):
         if not verify:
             self.session.verify = False
 
-        self.session.auth = (username, password)
+        self.session.auth = (self.username, self.password)
 
         self.platform = None
         self.get_platform_details()
