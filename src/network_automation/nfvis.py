@@ -21,7 +21,7 @@ class NFVISServer(object):
         self.username = username or environment.get_cisco_username()
         self.password = password or environment.get_cisco_password()
 
-        if not username or not password:
+        if not self.username or not self.password:
             raise ValueError("username/password is missing and could not be retrieved from environment variables")
 
         self.session = requests.Session()
