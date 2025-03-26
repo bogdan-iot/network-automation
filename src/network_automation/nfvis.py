@@ -62,3 +62,17 @@ class NFVISServer(object):
             return self.platform["hardware_info"]["Version"]
         except KeyError:
             return ""
+
+    def get_interfaces(self, detailed=False):
+        if detailed:
+            uri = self.url + '/api/operational/pnics?deep'
+        else:
+            uri = self.url + '/api/operational/pnics'
+
+        try:
+            resp = self.session.get(uri, headers=header)
+        except requests.exceptions.ConnectionError:
+            print("Could not get interface information")
+            return None
+
+        return json.loads(resp.text)["pnic:pnics"]["pnic"]
