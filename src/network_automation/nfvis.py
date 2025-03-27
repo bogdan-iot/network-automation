@@ -89,7 +89,10 @@ class NFVISServer(object):
             print("Could not get switch interface information")
             return None
 
-        return json.loads(resp.text)["switch:status"]
+        if resp.status_code == 200:
+            return json.loads(resp.text)["switch:status"]
+
+        return []
 
     def get_switchport_status(self, detailed=False):
         if detailed:
@@ -103,4 +106,7 @@ class NFVISServer(object):
             print("Could not get switchport information")
             return None
 
-        return json.loads(resp.text)["switch:switchPort"]
+        if resp.status_code == 200:
+            return json.loads(resp.text)["switch:switchPort"]
+
+        return []
