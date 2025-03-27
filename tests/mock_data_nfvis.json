@@ -58,7 +58,7 @@
           "status": "enabled"
         },
         "link_state": "down",
-        "mac_address": "a4:88:73:59:f1:ea",
+        "mac_address": "cc:88:7a:59:f1:ea",
         "mtu": 9216,
         "adminstatus": "down",
         "refcnt": 0,
@@ -96,7 +96,7 @@
           "status": "enabled"
         },
         "link_state": "down",
-        "mac_address": "a4:88:73:59:f1:eb",
+        "mac_address": "cc:88:7a:59:f1:eb",
         "mtu": 9216,
         "adminstatus": "down",
         "refcnt": 1,
@@ -118,6 +118,117 @@
             "multicast": "0"
           }
         }
+      }
+    ]
+  },
+  "switch:status": {
+    "gigabitEthernet": [
+      {
+        "Port": "1/0",
+        "Type": "1G-Copper",
+        "Link": "up",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:49",
+        "MTU": 9216
+      },
+      {
+        "Port": "1/1",
+        "Type": "1G-Copper",
+        "Link": "down",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:4a",
+        "MTU": 9216
+      },
+      {
+        "Port": "1/2",
+        "Type": "1G-Copper",
+        "Link": "down",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:4b",
+        "MTU": 9216
+      }
+    ],
+    "port-channel": [
+      {
+        "Port": "1",
+        "Type": "Port-Channel",
+        "Speed": "0",
+        "Link": "NA",
+        "Active-ports": "",
+        "Non-candidate-ports": ""
+      },
+      {
+        "Port": "2",
+        "Type": "Port-Channel",
+        "Speed": "0",
+        "Link": "NA",
+        "Active-ports": "",
+        "Non-candidate-ports": ""
+      }
+    ]
+  },
+  "switch:switchPort": {
+    "gigabitEthernet": [
+      {
+        "Port": "1/0",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "Up",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      },
+      {
+        "Port": "1/1",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "Down",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      }
+    ],
+    "port-channel": [
+      {
+        "Port": "1",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "NA",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      },
+      {
+        "Port": "2",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "NA",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
       }
     ]
   }
