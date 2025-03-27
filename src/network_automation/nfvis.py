@@ -76,3 +76,31 @@ class NFVISServer(object):
             return None
 
         return json.loads(resp.text)["pnic:pnics"]["pnic"]
+
+    def get_switch_interfaces(self, detailed=False):
+        if detailed:
+            uri = self.url + '/api/operational/switch/interface/status?deep'
+        else:
+            uri = self.url + '/api/operational/switch/interface/status'
+
+        try:
+            resp = self.session.get(uri, headers=header)
+        except requests.exceptions.ConnectionError:
+            print("Could not get switch interface information")
+            return None
+
+        return json.loads(resp.text)["switch:status"]
+
+    def get_switchport_status(self, detailed=False):
+        if detailed:
+            uri = self.url + '/api/operational/switch/interface/switchPort?deep'
+        else:
+            uri = self.url + '/api/operational/switch/interface/switchPort'
+
+        try:
+            resp = self.session.get(uri, headers=header)
+        except requests.exceptions.ConnectionError:
+            print("Could not get switchport information")
+            return None
+
+        return json.loads(resp.text)["switch:switchPort"]

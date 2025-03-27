@@ -64,7 +64,6 @@ class TestNFVIS:
     def test_get_interfaces(self, mock_get_interfaces, mock_get_platform_details, get_mock_data):
         mock_get_platform_details.return_value = None  # Prevents the actual API call
         """Test for checking the retrieved network interfaces"""
-        x = get_mock_data['pnic:pnics']['pnic']
         mock_get_interfaces.return_value = get_mock_data['pnic:pnics']['pnic']  # Mock return value
 
         # Create an instance of NFVIS (mock prevents real requests)
@@ -85,4 +84,57 @@ class TestNFVIS:
         assert len(interfaces) == 2  # Ensure correct number of interfaces
         assert interfaces[0]["name"] == "eth0-1"
         assert interfaces[1]["name"] == "eth0-2"
-        assert interfaces[1]["mac_address"] == "a4:88:73:59:f1:eb"
+        assert interfaces[1]["mac_address"] == "cc:88:7a:59:f1:eb"
+
+    @patch.object(NFVISServer, 'get_platform_details') # Mock get platform details
+    @patch.object(NFVISServer, 'get_switch_interfaces')  # Mock the method before it's called
+    def test_get_switch_interfaces(self, mock_get_switch_interfaces, mock_get_platform_details, get_mock_data):
+        mock_get_platform_details.return_value = None  # Prevents the actual API call
+        """Test for checking the retrieved switch interfaces"""
+        mock_get_switch_interfaces.return_value = get_mock_data['switch:status']['gigabitEthernet']  # Mock return value
+
+        # Create an instance of NFVIS (mock prevents real requests)
+        instance = NFVISServer(hostname="fake-hostname", username="fake-user", password="fake-password")
+
+        # Manually inject platform data to avoid real API calls
+        instance.platform = get_mock_data["platform_info:platform-detail"]
+
+        # Call method under test
+        switchports = instance.get_switch_interfaces()
+
+        # Ensure get_interfaces was called once
+        mock_get_switch_interfaces.assert_called_once()
+        mock_get_platform_details.assert_called_once()
+
+        # Assertions
+        assert isinstance(switchports, list)  # Ensure the result is a list
+        assert len(switchports) == 3  # Ensure correct number of interfaces
+        assert switchports[0]["Port"] == "1/0"
+        assert switchports[1]["Port"] == "1/1"
+        assert switchports[1]["macaddr"] == "a7:8b:0c:0d:7f:4a"
+
+    @patch.object(NFVISServer, 'get_platform_details') # Mock get platform details
+    @patch.object(NFVISServer, 'get_switchport_status')  # Mock the method before it's called
+    def test_get_switchport_status(self, mock_get_switchport_status, mock_get_platform_details, get_mock_data):
+        mock_get_platform_details.return_value = None  # Prevents the actual API call
+        """Test for checking the retrieved switchport status"""
+        mock_get_switchport_status.return_value = get_mock_data['switch:switchPort']['port-channel']  # Mock return value
+
+        # Create an instance of NFVIS (mock prevents real requests)
+        instance = NFVISServer(hostname="fake-hostname", username="fake-user", password="fake-password")
+
+        # Manually inject platform data to avoid real API calls
+        instance.platform = get_mock_data["platform_info:platform-detail"]
+
+        # Call method under test
+        switchports = instance.get_switchport_status()
+
+        # Ensure get_interfaces was called once
+        mock_get_switchport_status.assert_called_once()
+        mock_get_platform_details.assert_called_once()
+
+        # Assertions
+        assert isinstance(switchports, list)  # Ensure the result is a list
+        assert len(switchports) == 2  # Ensure correct number of interfaces
+        assert switchports[0]["switchport-mode"] == "enable"
+        assert switchports[1]["adminstrative-mode"] == "access"
