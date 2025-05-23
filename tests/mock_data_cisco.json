@@ -1,5 +1,5 @@
 {
-  "interfaces": [
+  "interface_details": [
     {
       "interface": "FiveGigabitEthernet2/0/10",
       "link_status": "up",
@@ -118,5 +118,89 @@
       "vlan_id_outer": ""
     }
 ],
-  "version_serial": "Processor board ID FOX3986YDP3"
+  "ip_int_brief":[
+    {
+      "interface": "GigabitEthernet1",
+      "ip_address": "192.168.30.50",
+      "status": "up",
+      "proto": "up"
+    },
+    {
+      "interface": "GigabitEthernet2",
+      "ip_address": "172.16.35.1",
+      "status": "up",
+      "proto": "up"
+    },
+    {
+      "interface": "GigabitEthernet3",
+      "ip_address": "unassigned",
+      "status": "administratively down",
+      "proto": "down"
+    },
+    {
+      "interface": "GigabitEthernet4",
+      "ip_address": "unassigned",
+      "status": "administratively down",
+      "proto": "down"
+    }
+  ],
+  "cdp_neighbors": [
+    {
+      "neighbor_name": "router1",
+      "local_interface": "Hun 1/0/32",
+      "capabilities": "R S I",
+      "platform": "C9606R",
+      "neighbor_interface": "Hun 1/0/11"
+    },
+    {
+      "neighbor_name": "access_r1",
+      "local_interface": "Hun 2/0/1",
+      "capabilities": "R S I",
+      "platform": "C9606R",
+      "neighbor_interface": "Hun 2/0/11"
+    },
+    {
+      "neighbor_name": "switch3",
+      "local_interface": "Hun 2/0/9",
+      "capabilities": "S I",
+      "platform": "C9410R",
+      "neighbor_interface": "For 5/0/10"
+    }
+  ],
+  "cdp_neighbors_detail": [
+    {
+    "neighbor_name": "router_3",
+    "mgmt_address": "172.17.3.1",
+    "platform": "cisco C9606R",
+    "neighbor_interface": "HundredGigE2/0/11",
+    "local_interface": "HundredGigE2/0/1",
+    "neighbor_description": "Cisco IOS Software [Cupertino], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.9.4a, RELEASE SOFTWARE (fc3)",
+    "capabilities": "Router Switch IGMP"
+}, {
+    "neighbor_name": "router_remote",
+    "mgmt_address": "172.22.27.73",
+    "platform": "cisco C9606R",
+    "neighbor_interface": "HundredGigE1/0/11",
+    "local_interface": "HundredGigE1/0/1",
+    "neighbor_description": "Cisco IOS Software [Cupertino], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.9.4a, RELEASE SOFTWARE (fc3)",
+    "capabilities": "Router Switch IGMP"
+}, {
+    "neighbor_name": "switch",
+    "mgmt_address": "172.30.255.73",
+    "platform": "cisco C9410R",
+    "neighbor_interface": "FortyGigabitEthernet5/0/10",
+    "local_interface": "HundredGigE2/0/9",
+    "neighbor_description": "Cisco IOS Software [Cupertino], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.9.5, RELEASE SOFTWARE (fc1)",
+    "capabilities": "Switch IGMP"
+}, {
+    "neighbor_name": "switch",
+    "mgmt_address": "172.30.255.73",
+    "platform": "cisco C9410R",
+    "neighbor_interface": "FortyGigabitEthernet5/0/9",
+    "local_interface": "HundredGigE1/0/9",
+    "neighbor_description": "Cisco IOS Software [Cupertino], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.9.5, RELEASE SOFTWARE (fc1)",
+    "capabilities": "Switch IGMP"
+}
+  ],
+  "serial_string": "Processor board ID FOX3986YDP3"
 }
