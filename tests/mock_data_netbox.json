@@ -1,0 +1,377 @@
+{
+  "devices": [
+    {
+      "id": 16,
+      "url": "https://demo.netbox.dev/api/dcim/devices/16/",
+      "display_url": "https://demo.netbox.dev/dcim/devices/16/",
+      "display": "dmi01-binghamton-sw01",
+      "name": "dmi01-binghamton-sw01",
+      "device_type": {
+        "id": 7,
+        "url": "https://demo.netbox.dev/api/dcim/device-types/7/",
+        "display": "C9200-48P",
+        "manufacturer": {
+          "id": 3,
+          "url": "https://demo.netbox.dev/api/dcim/manufacturers/3/",
+          "display": "Cisco",
+          "name": "Cisco",
+          "slug": "cisco",
+          "description": ""
+        },
+        "model": "C9200-48P",
+        "slug": "c9200-48p",
+        "description": ""
+      },
+      "role": {
+        "id": 4,
+        "url": "https://demo.netbox.dev/api/dcim/device-roles/4/",
+        "display": "Access Switch",
+        "name": "Access Switch",
+        "slug": "access-switch",
+        "description": ""
+      },
+      "tenant": {
+        "id": 5,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/5/",
+        "display": "Dunder-Mifflin, Inc.",
+        "name": "Dunder-Mifflin, Inc.",
+        "slug": "dunder-mifflin",
+        "description": ""
+    },
+    "platform": null,
+    "serial": "ABC123",
+    "asset_tag": null,
+    "site": {
+      "id": 4,
+      "url": "https://demo.netbox.dev/api/dcim/sites/4/",
+      "display": "DM-Binghamton",
+      "name": "DM-Binghamton",
+      "slug": "dm-binghamton",
+      "description": ""
+    },
+    "location": null,
+    "rack": {
+      "id": 3,
+      "url": "https://demo.netbox.dev/api/dcim/racks/3/",
+      "display": "Comms closet",
+      "name": "Comms closet",
+      "description": ""
+    },
+    "position": 10.0,
+    "face": {
+      "value": "front",
+      "label": "Front"
+    },
+    "latitude": null,
+    "longitude": null,
+    "parent_device": null,
+    "status": {
+      "value": "active",
+      "label": "Active"
+    },
+    "airflow": null,
+    "primary_ip": null,
+    "primary_ip4": null,
+    "primary_ip6": null,
+    "oob_ip": null,
+    "cluster": null,
+    "virtual_chassis": null,
+    "vc_position": null,
+    "vc_priority": null,
+    "description": "",
+    "comments": "",
+    "config_template": null,
+    "config_context": {},
+    "local_context_data": null,
+    "tags": [],
+    "custom_fields": {},
+    "created": "2020-12-22T00:00:00Z",
+    "last_updated": "2020-12-22T02:11:11.799000Z",
+    "console_port_count": 0,
+    "console_server_port_count": 0,
+    "power_port_count": 1,
+    "power_outlet_count": 0,
+    "interface_count": 52,
+    "front_port_count": 0,
+    "rear_port_count": 0,
+    "device_bay_count": 0,
+    "module_bay_count": 0,
+    "inventory_item_count": 0
+    },
+    {
+      "id": 12,
+      "url": "https://demo.netbox.dev/api/dcim/devices/12/",
+      "display_url": "https://demo.netbox.dev/dcim/devices/12/",
+      "display": "dmi01-utica-rtr01",
+      "name": "dmi01-utica-rtr01",
+      "device_type": {
+        "id": 6,
+        "url": "https://demo.netbox.dev/api/dcim/device-types/6/",
+        "display": "ISR 1111-8P",
+        "manufacturer": {
+          "id": 3,
+          "url": "https://demo.netbox.dev/api/dcim/manufacturers/3/",
+          "display": "Cisco",
+          "name": "Cisco",
+          "slug": "cisco",
+          "description": ""
+        },
+        "model": "ISR 1111-8P",
+        "slug": "isr1111",
+        "description": ""
+      },
+      "role": {
+        "id": 1,
+        "url": "https://demo.netbox.dev/api/dcim/device-roles/1/",
+        "display": "Router",
+        "name": "Router",
+        "slug": "router",
+        "description": ""
+      },
+      "tenant": {
+        "id": 5,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/5/",
+        "display": "Dunder-Mifflin, Inc.",
+        "name": "Dunder-Mifflin, Inc.",
+        "slug": "dunder-mifflin",
+        "description": ""
+      },
+      "platform": {
+        "id": 1,
+        "url": "https://demo.netbox.dev/api/dcim/platforms/1/",
+        "display": "Cisco IOS",
+        "name": "Cisco IOS",
+        "slug": "cisco-ios",
+        "description": ""
+      },
+      "serial": "",
+      "asset_tag": null,
+      "site": {
+        "id": 13,
+        "url": "https://demo.netbox.dev/api/dcim/sites/13/",
+        "display": "DM-Utica",
+        "name": "DM-Utica",
+        "slug": "dm-utica",
+        "description": ""
+      },
+      "location": null,
+      "rack": {
+        "id": 12,
+        "url": "https://demo.netbox.dev/api/dcim/racks/12/",
+        "display": "Comms closet",
+        "name": "Comms closet",
+        "description": ""
+      },
+      "position": 4.0,
+      "face": {
+        "value": "front",
+        "label": "Front"
+      },
+      "latitude": null,
+      "longitude": null,
+      "parent_device": null,
+      "status": {
+        "value": "active",
+        "label": "Active"
+      },
+      "airflow": null,
+      "primary_ip": null,
+      "primary_ip4": null,
+      "primary_ip6": null,
+      "oob_ip": null,
+      "cluster": null,
+      "virtual_chassis": null,
+      "vc_position": null,
+      "vc_priority": null,
+      "description": "",
+      "comments": "",
+      "config_template": null,
+      "config_context": {},
+      "local_context_data": null,
+      "tags": [],
+      "custom_fields": {},
+      "created": "2020-12-20T00:00:00Z",
+      "last_updated": "2020-12-20T02:56:38.212000Z",
+      "console_port_count": 2,
+      "console_server_port_count": 0,
+      "power_port_count": 1,
+      "power_outlet_count": 0,
+      "interface_count": 14,
+      "front_port_count": 0,
+      "rear_port_count": 0,
+      "device_bay_count": 0,
+      "module_bay_count": 0,
+      "inventory_item_count": 0
+    },
+    {
+      "serial": "ABC123",
+      "name": "Device3"
+    }
+  ],
+  "prefixes": [
+    {
+      "id": 124,
+      "url": "https://demo.netbox.dev/api/ipam/prefixes/124/",
+      "display_url": "https://demo.netbox.dev/ipam/prefixes/124/",
+      "display": "10.14.3.0/24",
+      "family": {
+        "value": 4,
+        "label": "IPv4"
+      },
+      "prefix": "10.14.3.0/24",
+      "site": {
+        "id": 6,
+        "url": "https://demo.netbox.dev/api/dcim/sites/6/",
+        "display": "DM-Camden",
+        "name": "DM-Camden",
+        "slug": "dm-camden",
+        "description": ""
+      },
+      "vrf": null,
+      "tenant": {
+        "id": 32,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/32/",
+        "display": "gpdemo",
+        "name": "gpdemo",
+        "slug": "gpdemo",
+        "description": ""
+      },
+      "vlan": {
+        "id": 10,
+        "url": "https://demo.netbox.dev/api/ipam/vlans/10/",
+        "display": "Voice (200)",
+        "vid": 200,
+        "name": "Voice",
+        "description": ""
+      },
+      "status": {
+        "value": "active",
+        "label": "Active"
+      },
+      "role": null,
+      "is_pool": true,
+      "mark_utilized": false,
+      "description": "app3-test-primary",
+      "comments": "",
+      "tags": [],
+      "custom_fields": {},
+      "created": "2024-11-28T16:25:30.178340Z",
+      "last_updated": "2024-11-28T20:34:07.369694Z",
+      "children": 0,
+      "_depth": 1
+    },
+    {
+      "id": 116,
+      "url": "https://demo.netbox.dev/api/ipam/prefixes/116/",
+      "display_url": "https://demo.netbox.dev/ipam/prefixes/116/",
+      "display": "10.13.0.0/16",
+      "family": {
+        "value": 4,
+        "label": "IPv4"
+      },
+      "prefix": "10.13.0.0/16",
+      "site": null,
+      "vrf": null,
+      "tenant": {
+        "id": 32,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/32/",
+        "display": "gpdemo",
+        "name": "gpdemo",
+        "slug": "gpdemo",
+        "description": ""
+      },
+      "vlan": null,
+      "status": {
+        "value": "container",
+        "label": "Container"
+      },
+      "role": null,
+      "is_pool": true,
+      "mark_utilized": false,
+      "description": "primary-dev",
+      "comments": "",
+      "tags": [],
+      "custom_fields": {},
+      "created": "2024-11-28T16:25:26.523920Z",
+      "last_updated": "2024-11-28T16:25:26.523955Z",
+      "children": 6,
+      "_depth": 0
+    }
+  ],
+  "ip_addresses": [
+    {
+      "id": 239,
+      "url": "https://demo.netbox.dev/api/ipam/ip-addresses/239/",
+      "display_url": "https://demo.netbox.dev/ipam/ip-addresses/239/",
+      "display": "10.14.3.65/24",
+      "family": {
+        "value": 4,
+        "label": "IPv4"
+      },
+      "address": "10.14.3.65/24",
+      "vrf": null,
+      "tenant": {
+        "id": 32,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/32/",
+        "display": "gpdemo",
+        "name": "gpdemo",
+        "slug": "gpdemo",
+        "description": ""
+      },
+      "status": {
+        "value": "active",
+        "label": "Active"
+      },
+      "role": null,
+      "assigned_object_type": null,
+      "assigned_object_id": null,
+      "assigned_object": null,
+      "nat_inside": null,
+      "nat_outside": [],
+      "dns_name": "",
+      "description": "appserviceinbound-app3-test-primary",
+      "comments": "",
+      "tags": [],
+      "custom_fields": {},
+      "created": "2024-11-28T19:29:55.433123Z",
+      "last_updated": "2024-11-28T19:29:55.433153Z"
+    },
+    {
+      "id": 224,
+      "url": "https://demo.netbox.dev/api/ipam/ip-addresses/224/",
+      "display_url": "https://demo.netbox.dev/ipam/ip-addresses/224/",
+      "display": "10.14.2.80/28",
+      "family": {
+        "value": 4,
+        "label": "IPv4"
+      },
+      "address": "10.14.2.80/28",
+      "vrf": null,
+      "tenant": {
+        "id": 32,
+        "url": "https://demo.netbox.dev/api/tenancy/tenants/32/",
+        "display": "gpdemo",
+        "name": "gpdemo",
+        "slug": "gpdemo",
+        "description": ""
+      },
+      "status": {
+        "value": "active",
+        "label": "Active"
+      },
+      "role": null,
+      "assigned_object_type": null,
+      "assigned_object_id": null,
+      "assigned_object": null,
+      "nat_inside": null,
+      "nat_outside": [],
+      "dns_name": "",
+      "description": "kv-app2-test-primary",
+      "comments": "",
+      "tags": [],
+      "custom_fields": {},
+      "created": "2024-11-28T17:54:22.069663Z",
+      "last_updated": "2024-11-28T17:54:22.069693Z"
+    }
+  ]
+}

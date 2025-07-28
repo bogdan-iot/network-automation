@@ -1,0 +1,235 @@
+{
+  "platform_info:platform-detail": {
+    "hardware_info": {
+      "Manufacturer": "Cisco Systems, Inc.",
+      "PID": "ENCS5412/K9",
+      "SN": "FGL3913OTVX",
+      "hardware-version": "M3",
+      "UUID": "5c710dcb-71d2-0000-16c7-3bd6c4aa7275",
+      "Version": "4.6.1-FC1",
+      "Compile_Time": "Tuesday, August 17, 2021 [19:19:43 PDT]",
+      "CPU_Information": "Intel(R) Xeon(R) CPU D-1557 @ 1.50GHz 12 cores",
+      "Memory_Information": "65767648 kB",
+      "Disk_Size": "64.0 GB",
+      "CIMC_IP": "NA",
+      "Entity-Name": "ENCS",
+      "Entity-Desc": "Enterprise Network Compute System",
+      "BIOS-Version": "ENCS54_2.5.022720181334",
+      "CIMC-Version": "3.2(4.20180315121704)"
+    },
+    "software_packages": {
+      "Kernel_Version": "3.10.0-1062.4.1.3.el7.x86_64",
+      "QEMU_Version": "2.12.0",
+      "LibVirt_Version": "4.5.0",
+      "OVS_Version": "2.11.4"
+    },
+    "port_detail": [
+      {
+        "Name": "GE0-0"
+      },
+      {
+        "Name": "GE0-1"
+      },
+      {
+        "Name": "MGMT"
+      }
+    ],
+    "switch_detail": {
+      "UUID": "NA",
+      "Type": "NA",
+      "Name": "NA",
+      "Ports": 8
+    }
+  },
+  "pnic:pnics": {
+    "pnic": [
+      {
+        "name": "eth0-1",
+        "operational-speed": 0,
+        "operational-duplex": "unknown",
+        "operational-promiscuous": "disabled",
+        "autoneg": "on",
+        "sriov": {
+          "numvfs": 4,
+          "sriov-support": true,
+          "maxvfs": 61,
+          "numvfs-onsystem": 4,
+          "inusevfs": 4,
+          "status": "enabled"
+        },
+        "link_state": "down",
+        "mac_address": "cc:88:7a:59:f1:ea",
+        "mtu": 9216,
+        "adminstatus": "down",
+        "refcnt": 0,
+        "stats": {
+          "receive": {
+            "bytes": "0",
+            "packets": "0",
+            "errors": 0,
+            "dropped": 0,
+            "broadcast": "0",
+            "multicast": "0"
+          },
+          "transmit": {
+            "bytes": "0",
+            "packets": "0",
+            "errors": 0,
+            "dropped": 0,
+            "broadcast": "0",
+            "multicast": "0"
+          }
+        }
+      },
+      {
+        "name": "eth0-2",
+        "operational-speed": 0,
+        "operational-duplex": "unknown",
+        "operational-promiscuous": "disabled",
+        "autoneg": "on",
+        "sriov": {
+          "numvfs": 4,
+          "sriov-support": true,
+          "maxvfs": 61,
+          "numvfs-onsystem": 4,
+          "inusevfs": 4,
+          "status": "enabled"
+        },
+        "link_state": "down",
+        "mac_address": "cc:88:7a:59:f1:eb",
+        "mtu": 9216,
+        "adminstatus": "down",
+        "refcnt": 1,
+        "stats": {
+          "receive": {
+            "bytes": "0",
+            "packets": "0",
+            "errors": 0,
+            "dropped": 0,
+            "broadcast": "0",
+            "multicast": "0"
+          },
+          "transmit": {
+            "bytes": "0",
+            "packets": "0",
+            "errors": 0,
+            "dropped": 0,
+            "broadcast": "0",
+            "multicast": "0"
+          }
+        }
+      }
+    ]
+  },
+  "switch:status": {
+    "gigabitEthernet": [
+      {
+        "Port": "1/0",
+        "Type": "1G-Copper",
+        "Link": "up",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:49",
+        "MTU": 9216
+      },
+      {
+        "Port": "1/1",
+        "Type": "1G-Copper",
+        "Link": "down",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:4a",
+        "MTU": 9216
+      },
+      {
+        "Port": "1/2",
+        "Type": "1G-Copper",
+        "Link": "down",
+        "Speed": "1000",
+        "MediaType": "RJ45",
+        "macaddr": "a7:8b:0c:0d:7f:4b",
+        "MTU": 9216
+      }
+    ],
+    "port-channel": [
+      {
+        "Port": "1",
+        "Type": "Port-Channel",
+        "Speed": "0",
+        "Link": "NA",
+        "Active-ports": "",
+        "Non-candidate-ports": ""
+      },
+      {
+        "Port": "2",
+        "Type": "Port-Channel",
+        "Speed": "0",
+        "Link": "NA",
+        "Active-ports": "",
+        "Non-candidate-ports": ""
+      }
+    ]
+  },
+  "switch:switchPort": {
+    "gigabitEthernet": [
+      {
+        "Port": "1/0",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "Up",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      },
+      {
+        "Port": "1/1",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "Down",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      }
+    ],
+    "port-channel": [
+      {
+        "Port": "1",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "NA",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      },
+      {
+        "Port": "2",
+        "switchport-mode": "enable",
+        "adminstrative-mode": "access",
+        "operational-mode": "NA",
+        "access-mode-vlan": "1",
+        "trunk-native-mode-vlan": "1",
+        "trunking-vlans": "1-2349,2450-4093",
+        "dot1q-tunnel-vlan": "none",
+        "Privatevlan-promiscuous-association-primary-VLAN": "none",
+        "Privatevlan-promiscuous-association-secondary-VLAN": "none",
+        "Privatevlan-host-association-primary-VLAN": "none",
+        "Privatevlan-host-association-secondary-VLAN": "none"
+      }
+    ]
+  }
+}
