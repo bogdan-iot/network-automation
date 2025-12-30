@@ -56,19 +56,39 @@ class VManage:
         else:
             self.headers = {'Content-Type': "application/json", 'Cookie': self.auth.jsessionid}
 
+    def get_all_devices(self):
+        url_path = '/device'
+
+        result = requests.get(self.base_url + url_path, headers=self.headers,
+                              proxies=self.proxies, verify=False).json()
+
+        return [MyDict(x) for x in result['data']]
+
     def get_prefix_lists(self):
         url_path = '/template/policy/list/dataprefix'
 
-        return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
-                                   proxies=self.proxies, verify=False).json())
+        result = requests.get(self.base_url + url_path, headers=self.headers,
+                              proxies=self.proxies, verify=False).json()
 
-    def get_security_policy(self):
+        return [MyDict(x) for x in result['data']]
+
+    def get_security_policies(self):
         url_path = '/template/policy/security'
 
-        return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
-                                   proxies=self.proxies, verify=False).json())
+        result = requests.get(self.base_url + url_path, headers=self.headers,
+                              proxies=self.proxies, verify=False).json()
 
-    def get_firewall_policy(self, policy_id):
+        return [MyDict(x) for x in result['data']]
+
+    def get_zbf_policies(self):
+        url_path = '/template/policy/definition/zonebasedfw'
+
+        result = requests.get(self.base_url + url_path, headers=self.headers,
+                              proxies=self.proxies, verify=False).json()
+
+        return [MyDict(x) for x in result['data']]
+
+    def get_zbf_policy(self, policy_id):
         url_path = f'/template/policy/definition/zonebasedfw/{policy_id}'
 
         return MyDict(requests.get(self.base_url + url_path, headers=self.headers,
