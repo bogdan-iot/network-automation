@@ -43,7 +43,7 @@ class CiscoACI:
 
         try:
             mgmt_ip = result['imdata'][0]['ipv4Addr']['attributes']['addr']
-        except IndexError:
+        except (IndexError, KeyError):
             print(f"Could not get management IP address for {path}: {result}")
             return None
 
