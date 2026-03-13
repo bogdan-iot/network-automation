@@ -46,24 +46,24 @@ class NFVISServer(object):
         try:
             self.platform = json.loads(resp.text)["platform_info:platform-detail"]
         except json.decoder.JSONDecodeError:
-            print(f"Error getting platform details, raw value: {resp.text}")
+            print(f"Error getting platform details, raw response: {resp.text}")
 
     def get_serial(self):
         try:
             return self.platform["hardware_info"]["SN"]
-        except KeyError:
+        except (KeyError, TypeError):
             return ""
 
     def get_pid(self):
         try:
             return self.platform["hardware_info"]["PID"]
-        except KeyError:
+        except (KeyError, TypeError):
             return ""
 
     def get_version(self):
         try:
             return self.platform["hardware_info"]["Version"]
-        except KeyError:
+        except (KeyError, TypeError):
             return ""
 
     def get_interfaces(self, detailed=False):
@@ -78,7 +78,10 @@ class NFVISServer(object):
             print("Could not get interface information")
             return None
 
-        return json.loads(resp.text)["pnic:pnics"]["pnic"]
+        try:
+            return json.loads(resp.text)["pnic:pnics"]["pnic"]
+        except json.decoder.JSONDecodeError:
+            print(f"Error getting interfaces, raw response: {resp.text}")
 
     def get_switch_interfaces(self, detailed=False):
         if detailed:
