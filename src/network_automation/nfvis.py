@@ -43,7 +43,10 @@ class NFVISServer(object):
         except requests.exceptions.ConnectionError:
             raise ConnectionError(f"Could not connect to {self.hostname}")
 
-        self.platform = json.loads(resp.text)["platform_info:platform-detail"]
+        try:
+            self.platform = json.loads(resp.text)["platform_info:platform-detail"]
+        except json.decoder.JSONDecodeError:
+            print(f"Error getting platform details, raw value: {resp.text}")
 
     def get_serial(self):
         try:
